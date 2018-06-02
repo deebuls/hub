@@ -906,6 +906,7 @@ def run_final_eval(train_session, module_spec, class_count, image_lists,
   plt.figure(figsize=(8,8))
   plot_confusion_matrix(cnf_matrix, list(image_lists.keys()))
   plt.show()
+  plt.savefig('/tmp/confusion_matrix.jpg')
 
 def build_eval_session(module_spec, class_count):
   """Builds an restored eval session without train operations for exporting.
