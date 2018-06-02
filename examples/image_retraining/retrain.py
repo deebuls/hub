@@ -900,11 +900,11 @@ def run_final_eval(train_session, module_spec, class_count, image_lists,
         tf.logging.info('%70s  %s' % (test_filename,
                                       list(image_lists.keys())[predictions[i]]))
   
-  cnf_matrix = tf.confusion_matrix(test_ground_truth, image_lists.keys())
+  cnf_matrix = tf.confusion_matrix(test_ground_truth, list(image_lists.keys()))
   
   # Plot non-normalized confusion matrix
   plt.figure(figsize=(8,8))
-  plot_confusion_matrix(cnf_matrix, class_names)
+  plot_confusion_matrix(cnf_matrix, list(image_lists.keys()))
   plt.show()
 
 def build_eval_session(module_spec, class_count):
